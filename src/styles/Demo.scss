@@ -1,0 +1,23 @@
+.container {
+  margin-top: 20px;
+  font-size: 25px;
+  line-height: 50px;
+  display: flex;
+  width: 400px;
+
+  .weight-date {
+    position: fixed;
+    margin-left: 10px;
+  }
+  .weight-mor {
+    position: fixed;
+    width: 70px;
+    margin-left: 275px;
+    text-align: right;
+  }
+  .weight-eve {
+    width: 70px;
+    margin-left: 335px;
+    text-align: right;
+  }
+}

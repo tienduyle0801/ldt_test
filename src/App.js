@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { connect } from "react-redux";
+import Item from "./components/Demo";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(props) {
+  return props.weightData.map((items, i) => <Item key={i} data={items} />);
 }
+const mapStateToProps = (state) => {
+  return {
+    weightData: state.weightData,
+  };
+};
 
-export default App;
+export default connect(mapStateToProps)(App);
