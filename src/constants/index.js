@@ -1,0 +1,2 @@
+export const ADD_WEIGHT_DATA = "ADD_WEIGHT_DATA";
+export const UPDATE_WEIGHT_DATA = "UPDATE_WEIGHT_DATA";

@@ -1,0 +1,63 @@
+.input-container {
+  height: 230px;
+  text-align: center;
+  border-style: double;
+  border-radius: 5%;
+  background-color: bisque;
+  .input-date {
+    width: 260px;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 40px;
+  }
+  .input-mor {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 260px;
+  }
+  .input-eve {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 260px;
+  }
+  .button-submit {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 30px;
+    border-radius: 5%;
+    color: blue;
+    font-weight: bold;
+  }
+
+  .input-label {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  .error-date {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+    color: red;
+    margin-left: 10px;
+  }
+  .error-mor {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+    color: red;
+    margin-left: 80px;
+  }
+  .error-eve {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+    color: red;
+    margin-left: 80px;
+  }
+}
