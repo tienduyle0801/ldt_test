@@ -38,7 +38,6 @@ const Input = (props) => {
       });
     }
   };
-  console.log(props.weightData);
 
   return (
     <div className="input-container">

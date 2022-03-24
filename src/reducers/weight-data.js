@@ -18,6 +18,8 @@ const weightDataReducer = (state = initialState, action) => {
       return [...state, action.payload];
     case constant.UPDATE_WEIGHT_DATA:
       return action.payload;
+    case constant.DELETE_WEIGHT_DATA:
+      return action.payload;
     default:
       return state;
   }

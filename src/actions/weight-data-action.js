@@ -16,3 +16,11 @@ export const updateWeightData = (data) => {
     });
   };
 };
+export const deleteWeightData = (data) => {
+  return (dispatch) => {
+    dispatch({
+      type: constant.DELETE_WEIGHT_DATA,
+      payload: data,
+    });
+  };
+};

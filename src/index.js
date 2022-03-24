@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import configStore from "./store";
 import { Provider } from "react-redux";
-
+import "./styles/global.scss";
 const store = configStore();
 
 ReactDOM.render(
