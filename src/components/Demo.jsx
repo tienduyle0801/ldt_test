@@ -3,6 +3,7 @@ import ConfirmPopup from "./popup-confirm";
 import { useState } from "react";
 import { connect } from "react-redux";
 import { deleteWeightData } from "../actions/weight-data-action";
+import moment from "moment";
 
 const Item = (props) => {
   const [visible, setVisible] = useState(false);
@@ -25,9 +26,13 @@ const Item = (props) => {
   return (
     <>
       <div className="container item">
-        <div className="weight-date">{props.data.date}</div>
-        <div className="weight-mor">{props.data.mor}/</div>
-        <div className="weight-eve">{props.data.eve}</div>
+        <div className="weight-date">
+          {moment(props.data.date).format("DD/MM/YYYY , H:MM:SS A")}
+        </div>
+        <div className="group-right">
+          <div className="weight-mor">{props.data.mor}/</div>
+          <div className="weight-eve">{props.data.eve}</div>
+        </div>
         <button className="weight-delete" onClick={handleDelete}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
