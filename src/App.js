@@ -13,6 +13,7 @@ function App(props) {
     </div>
   );
 }
+
 const mapStateToProps = (state) => {
   return {
     weightData: state.weightData,
