@@ -16,20 +16,7 @@ const Input = (props) => {
     }
     const checkDate = props.weightData.filter((x) => x.date === date);
     if (checkDate.length && date) {
-      let cloneNewData = [...props.weightData];
-      const getIndexData = props.weightData
-        .map((e, i) => (e.date === date ? i : ""))
-        .filter(String);
-      const dataNeedUpdate = checkDate.map((item) => ({
-        ...item,
-        mor: mor,
-        eve: eve,
-      }));
-      getIndexData.map((item) => {
-        cloneNewData[item] = dataNeedUpdate[0];
-      });
-
-      props.updateWeightData(cloneNewData);
+      props.updateWeightData({ date, mor, eve });
     } else {
       props.addWeightData({
         date,

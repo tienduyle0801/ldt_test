@@ -13,21 +13,19 @@ const Item = (props) => {
   };
   const handleOnAction = (data) => {
     if (data) {
-      const deleteItem = props.weightData.filter(
-        (x, i) => i !== props.indexItem
-      );
-      props.deleteWeightData(deleteItem);
-      console.log(deleteItem);
-      setVisible(false);
+      props.deleteWeightData(props.indexItem);
+      setVisible(!data);
     } else {
       setVisible(data);
     }
   };
+
   return (
     <>
       <div className="container item">
         <div className="weight-date">
-          {moment(props.data.date).format("DD/MM/YYYY , H:MM:SS A")}
+          {props.data.date}
+          {/* {moment//format("DD/MM/YYYY , H:MM:SS A") */}
         </div>
         <div className="group-right">
           <div className="weight-mor">{props.data.mor}/</div>
