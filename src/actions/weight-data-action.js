@@ -35,7 +35,7 @@ export const fetchWeightData = () => {
           type: constant.DATA_FETCH,
           payload: response.map((item) => ({
             ...item,
-            date: moment(item.date).format("DD/MM/YYYY, H:MM:SS A"),
+            date: moment(item.date).format("DD/MM/YYYY"),
           })),
         });
       })

@@ -7,7 +7,7 @@ const Item = ({ data, indexItem, onDelete }) => {
     if (hasDateFormat) {
       return <div>{date}</div>;
     } else {
-      return <div>{moment(date).format("DD/MM/YYYY, H:MM:SS A")}</div>;
+      return <div>{moment(date).format("DD/MM/YYYY")}</div>;
     }
   };
   return (
