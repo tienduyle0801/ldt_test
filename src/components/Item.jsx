@@ -6,8 +6,7 @@ const Item = ({ data, indexItem, onDelete }) => {
     <>
       <div className="container item">
         <div className="weight-date">
-          {data.date}
-          {/* {moment//format("DD/MM/YYYY , H:MM:SS A") */}
+          {moment(data.date).format("DD/MM/YYYY , H:MM:SS A")}
         </div>
         <div className="group-right">
           <div className="weight-mor">{data.mor}/</div>

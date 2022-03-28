@@ -24,3 +24,21 @@ export const deleteWeightData = (data) => {
     });
   };
 };
+export const fetchWeightData = () => {
+  return (dispatch) => {
+    fetch("https://623a84db5f037c1362187c82.mockapi.io/api/weight-list")
+      .then((response) => response.json())
+      .then((response) => {
+        dispatch({ type: constant.DATA_FETCH_SUCCESS });
+        dispatch({
+          type: constant.DATA_FETCH,
+          payload: response,
+        });
+      })
+      .catch((error) => {
+        dispatch({
+          type: constant.DATA_FETCH_FAILURE,
+        });
+      });
+  };
+};
