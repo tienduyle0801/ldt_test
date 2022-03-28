@@ -1,13 +1,10 @@
 import "../styles/Item.scss";
-import moment from "moment";
 
 const Item = ({ data, indexItem, onDelete }) => {
   return (
     <>
       <div className="container item">
-        <div className="weight-date">
-          {moment(data.date).format("DD/MM/YYYY , H:MM:SS A")}
-        </div>
+        <div className="weight-date">{data.date}</div>
         <div className="group-right">
           <div className="weight-mor">{data.mor}/</div>
           <div className="weight-eve">{data.eve}</div>
