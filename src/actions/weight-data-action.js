@@ -1,4 +1,5 @@
 import * as constant from "../constants";
+import moment from "moment";
 
 export const addWeightData = (data) => {
   return (dispatch) => {
@@ -32,7 +33,10 @@ export const fetchWeightData = () => {
         dispatch({ type: constant.DATA_FETCH_SUCCESS });
         dispatch({
           type: constant.DATA_FETCH,
-          payload: response,
+          payload: response.map((item) => ({
+            ...item,
+            date: moment(item.date).format("DD/MM/YYYY, H:MM:SS A"),
+          })),
         });
       })
       .catch((error) => {

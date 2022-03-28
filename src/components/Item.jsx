@@ -2,12 +2,18 @@ import "../styles/Item.scss";
 import moment from "moment";
 
 const Item = ({ data, indexItem, onDelete }) => {
+  const formatDateTime = (date) => {
+    const hasDateFormat = date.indexOf("/");
+    if (hasDateFormat) {
+      return <div>{date}</div>;
+    } else {
+      return <div>{moment(date).format("DD/MM/YYYY, H:MM:SS A")}</div>;
+    }
+  };
   return (
     <>
       <div className="container item">
-        <div className="weight-date">
-          {moment(data.date).format("DD/MM/YYYY , H:MM:SS A")}
-        </div>
+        <div className="weight-date">{formatDateTime(data.date)}</div>
         <div className="group-right">
           <div className="weight-mor">{data.mor}/</div>
           <div className="weight-eve">{data.eve}</div>

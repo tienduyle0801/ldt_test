@@ -1,24 +1,30 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { deleteWeightData } from "./actions/weight-data-action";
+import {
+  fetchWeightData,
+  deleteWeightData,
+} from "./actions/weight-data-action";
 import Item from "./components/Item";
 import Input from "./components/Input";
-import PopupConfirm from "./components/popup-confirm";
+import PopupConfirm from "./components/popup-confirm/index";
 
-function App(props) {
+function App({ weightData, deleteWeightData, fetchWeightData }) {
   const [visible, setVisible] = useState(false);
   const [itemToDelete, setItemToDelete] = useState();
+
+  useEffect(() => {
+    fetchWeightData();
+  }, []);
 
   const handleDelete = (indexItem) => {
     setVisible(true);
     setItemToDelete(indexItem);
-    console.log(indexItem);
   };
 
   const handleAction = (data) => {
     if (data) {
-      props.deleteWeightData(itemToDelete);
+      deleteWeightData(itemToDelete);
       setVisible(!data);
     } else {
       setVisible(data);
@@ -29,7 +35,7 @@ function App(props) {
     <>
       <div className="container-wrapper">
         <Input />
-        {props.weightData.map((items, i) => (
+        {weightData.map((items, i) => (
           <Item
             key={i}
             data={items}
@@ -57,6 +63,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    fetchWeightData: () => dispatch(fetchWeightData()),
     deleteWeightData: (data) => dispatch(deleteWeightData(data)),
   };
 };
