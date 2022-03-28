@@ -17,9 +17,24 @@ const weightDataReducer = (state = initialState, action) => {
     case constant.ADD_WEIGHT_DATA:
       return [...state, action.payload];
     case constant.UPDATE_WEIGHT_DATA:
-      return action.payload;
+      const arrayData = [...state];
+      const getIndexData = arrayData
+        .map((e, i) => (e.date === action.payload.date ? i : ""))
+        .filter(String);
+      console.log(getIndexData);
+      getIndexData.map((item) => {
+        arrayData[item] = {
+          ...arrayData[item],
+          mor: Number(action.payload.mor),
+          eve: Number(action.payload.eve),
+        };
+      });
+      console.log(state);
+      return arrayData;
     case constant.DELETE_WEIGHT_DATA:
-      return action.payload;
+      state = state.filter((x, index) => index !== action.payload);
+      const newArray = [...state];
+      return newArray;
     default:
       return state;
   }
