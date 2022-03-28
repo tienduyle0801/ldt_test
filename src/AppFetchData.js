@@ -1,27 +1,36 @@
 import "./App.css";
-import Item from "./components/Demo";
+import Item from "./components/Item";
 import Input from "./components/Input";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { fetchWeightData } from "./actions/weight-data-action";
+import { connect } from "react-redux";
 
-function AppFetchData() {
-  const [weightData, setWeightData] = useState([]);
-
+function AppFetchData(props) {
   useEffect(() => {
-    fetch("https://623a84db5f037c1362187c82.mockapi.io/api/weight-list")
-      .then((res) => res.json())
-      .then((response) => {
-        setWeightData(response);
-      });
+    props.fetchWeightData();
   }, []);
 
   return (
     <div className="container-wrapper">
       <Input />
-      {weightData.map((items, i) => (
-        <Item key={i} data={items} indexItem={i}></Item>
-      ))}
+      {props.weightData.length ? (
+        props.weightData.map((items, i) => (
+          <Item key={i} data={items} indexItem={i}></Item>
+        ))
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 }
-
-export default AppFetchData;
+const mapStateToProps = (state) => {
+  return {
+    weightData: state.weightData,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchWeightData: () => dispatch(fetchWeightData()),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(AppFetchData);
